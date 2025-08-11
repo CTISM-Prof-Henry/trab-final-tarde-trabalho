@@ -7,50 +7,50 @@
  * Login com Google/GitHub (opcional)
 
 ## 2. Gestão de tarefas
-Criar nova tarefa
+* Criar nova tarefa
 
-Editar tarefa
+* Editar tarefa
 
-Marcar como concluída
+* Marcar como concluída
 
-Excluir tarefa
+* Excluir tarefa
 
-Definir data de vencimento
+* Definir data de vencimento
 
-Adicionar prioridade (Alta, Média, Baixa)
+* Adicionar prioridade (Alta, Média, Baixa)
 
-Adicionar descrição ou observações
+* Adicionar descrição ou observações
 
 ## 3. Organização por listas ou projetos
-Criar múltiplas listas (ex: Trabalho, Estudos, Casa)
+* Criar múltiplas listas (ex: Trabalho, Estudos, Casa)
 
-Mover tarefas entre listas
+* Mover tarefas entre listas
 
-Ordenar tarefas (por data, prioridade, nome)
+* Ordenar tarefas (por data, prioridade, nome)
 ##  4. Notificações e lembretes (opcional)
-Alertas por e-mail ou push
+* Alertas por e-mail ou push
 
-Lembretes próximos do vencimento
+* Lembretes próximos do vencimento
 ## 5. Filtro e busca
-Buscar tarefas por nome
+* Buscar tarefas por nome
 
-Filtrar por:
+* Filtrar por:
 
-Tarefas concluídas/pendentes
+* Tarefas concluídas/pendentes
 
-Prioridade
+* Prioridade
 
-Lista
+* Lista
 
-Data
+* Data
 ## 6. Visão geral
-Tarefas do dia
+* Tarefas do dia
 
-Tarefas atrasadas
+* Tarefas atrasadas
 
-Tarefas concluídas
+* Tarefas concluídas
 
-Progresso por lista ou categoria
+* Progresso por lista ou categoria
 
 
 
