@@ -45,7 +45,7 @@ Prioridade
 Lista
 
 Data
-## 6. Visão geral / Dashboard
+## 6. Visão geral
 Tarefas do dia
 
 Tarefas atrasadas
