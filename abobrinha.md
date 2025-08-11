@@ -1,12 +1,10 @@
 ## Organizador de tarefas
 ## 1.  Cadastro e autenticação de usuário
- Registro (nome, e-mail, senha)
-
- Login / Logout
  
- Recuperação de senha
- 
- Login com Google/GitHub (opcional)
+ * Registro (nome, e-mail, senha)
+ * Login / Logout
+ * Recuperação de senha
+ * Login com Google/GitHub (opcional)
 
 ## 2. Gestão de tarefas
 Criar nova tarefa
