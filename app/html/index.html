@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt_BR" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/styl.css">
+    <title>ORGANIZADOR DE TAREFAS</title>
+
 </head>
 <body>
-<h1>Página inicial</h1>
+    <div class="container">
+        <div class="login-box"> <!-- Caixa que contém os elementos do login -->
+            <div class="user-icon"></div> <!-- Ícone de usuário -->
+            <form id="login-form"> <!-- Formulário para dados do login -->
+                <input type="email" id="email" placeholder="Email" required> <!-- Campo de email com validação -->
+                <input type="password" id="password" placeholder="Senha" required> <!-- Campo de senha com validação -->
+                <button type="submit">Entrar</button> <!-- Botão de submissão do formulário -->
+            </form>
+            <p class="signup-text">Ainda não possui uma conta?</p> <!-- Texto para link de cadastro -->
+        </div>
 
-<p>Uma pizza pra você!</p>
-
-<img src="../images/pizza.jpg" alt="foto de uma pizza"/>
-
-<br/>
-
-<button id="button_click">Clique aqui</button>
-
+    </div>
+    <script src="script.js"></script>
 </body>
-<script src="../js/script.js"></script>
-<script type="text/javascript">
-    document.getElementById("button_click").addEventListener('click', funcao_clique);
-</script>
-
 </html>
