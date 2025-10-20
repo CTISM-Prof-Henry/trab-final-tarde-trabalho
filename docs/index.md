@@ -41,13 +41,4 @@ Clique em "Sair" para encerrar a sessão.
 2. Edite os arquivos e teste.
 3. Envie um pull request.
 
-## Diagrama de Casos de Uso
-```mermaid
-graph TD
-    User[Usuário] --> Login[Login no Sistema]
-    User --> AddTask[Adicionar Tarefa]
-    User --> ViewTasks[Visualizar Tarefas]
-    User --> CompleteTask[Marcar Tarefa como Concluída]
-    User --> EditTask[Editar Tarefa]
-    User --> DeleteTask[Deletar Tarefa]
-    User --> Logout[Sair do Sistema]
+
