@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Define o documento como HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma como português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/styl.css">
-    <title>ORGANIZADOR DE TAREFAS</title>
-
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para suportar acentos e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante que a página seja responsiva em dispositivos móveis -->
+    <title>Tela de Login</title> <!-- Título exibido na aba do navegador -->
+    <link rel="stylesheet" href="../CSS/styl.css"> <!-- Importa o arquivo de estilos CSS compartilhado -->
 </head>
 <body>
-    <div class="container">
-        <div class="login-box"> <!-- Caixa que contém os elementos do login -->
-            <div class="user-icon"></div> <!-- Ícone de usuário -->
-            <form id="login-form"> <!-- Formulário para dados do login -->
-                <input type="email" id="email" placeholder="Email" required> <!-- Campo de email com validação -->
-                <input type="password" id="password" placeholder="Senha" required> <!-- Campo de senha com validação -->
-                <button type="submit">Entrar</button> <!-- Botão de submissão do formulário -->
+    <div class="container"> <!-- Container principal que centraliza o conteúdo na tela -->
+        <div class="login-box"> <!-- Caixa estilizada que contém o formulário de login -->
+            <div class="user-icon"></div> <!-- Div para o ícone de usuário, estilizado via CSS -->
+            <form id="login-form"> <!-- Formulário para capturar email e senha -->
+                <input type="email" id="email" placeholder="Email" required> <!-- Campo de entrada para email, com validação HTML5 -->
+                <input type="password" id="password" placeholder="Senha" required> <!-- Campo de entrada para senha, com validação HTML5 -->
+                <button type="submit">Entrar</button> <!-- Botão para enviar o formulário -->
             </form>
-            <p class="signup-text">Ainda não possui uma conta?</p> <!-- Texto para link de cadastro -->
+            <p id="error-message" class="error-message"></p> <!-- Parágrafo para exibir mensagens de erro (ex.: conta não encontrada) -->
+            <p class="signup-text">Ainda não possui uma conta? <a href="signup.html">Cadastre-se</a></p> <!-- Texto com link para a página de cadastro -->
         </div>
-
     </div>
-    <script src="script.js"></script>
+    <script src="../JS/script.js"></script> <!-- Importa o arquivo JavaScript que gerencia a lógica de login -->
 </body>
 </html>
