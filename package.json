@@ -1,0 +1,12 @@
+{
+  "name": "organizador-tarefas",
+  "version": "1.0.0",
+  "devDependencies": {
+    "eslint": "^8.50.0"
+  },
+  "scripts": {
+    "lint": "eslint \"JS/*.js\"",
+    "lint:fix": "eslint \"JS/*.js\" --fix",
+    "report": "eslint \"JS/*.js\" --format html --output-file eslint-report.html"
+  }
+}
