@@ -1,0 +1,151 @@
+body {
+    margin: 0; /* Remove margens padrão do navegador */
+    padding: 0; /* Remove preenchimento padrão do navegador */
+    font-family: Arial, sans-serif; /* Define Arial como fonte padrão, com fallback para fontes genéricas */
+    background: #2e7d32; /* Fundo verde escuro, baseado no protótipo do Figma */
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Ocupa 100% da altura da janela do navegador */
+}
+
+.container {
+    width: 100%; /* Largura total, mas limitada pelo max-width */
+    max-width: 600px; /* Limita a largura máxima para telas de tarefas (um pouco maior que login/cadastro) */
+    text-align: center; /* Centraliza o texto dentro do container */
+}
+
+.task-box, .login-box {
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência para contraste com o fundo verde */
+    padding: 20px; /* Espaçamento interno para conteúdo */
+    border-radius: 15px; /* Bordas arredondadas para um visual moderno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve para efeito de profundidade */
+}
+
+.user-icon {
+    width: 80px; /* Largura do ícone de usuário */
+    height: 80px; /* Altura do ícone de usuário */
+    background: linear-gradient(45deg, #00c4cc, #4caf50); /* Gradiente azul-verde para o ícone, inspirado no Figma */
+    border-radius: 50%; /* Faz o ícone circular */
+    margin: 0 auto 20px; /* Centraliza horizontalmente e adiciona margem inferior */
+    position: relative; /* Permite posicionar o SVG interno */
+}
+
+.user-icon::before {
+    content: ''; /* Cria um pseudo-elemento para o ícone SVG */
+    position: absolute; /* Posiciona o SVG relativamente ao .user-icon */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o SVG para o centro exato */
+    width: 40px; /* Tamanho do ícone SVG */
+    height: 40px; /* Tamanho do ícone SVG */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>') no-repeat center; /* SVG de um ícone de usuário em branco */
+    background-size: contain; /* Ajusta o SVG ao tamanho da div */
+}
+
+input {
+    width: 100%; /* Ocupa toda a largura do container pai */
+    padding: 10px; /* Espaçamento interno para conforto ao digitar */
+    margin: 10px 0; /* Margem vertical para separar os campos */
+    border: 1px solid #ccc; /* Borda cinza clara para os campos */
+    border-radius: 5px; /* Bordas arredondadas para um visual suave */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+}
+
+button {
+    width: 100%; /* Botões ocupam toda a largura (ex.: botões de login, cadastro, adicionar) */
+    padding: 10px; /* Espaçamento interno */
+    background: #1976d2; /* Cor azul do botão, baseada no protótipo */
+    color: white; /* Texto branco para contraste */
+    border: none; /* Remove borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+button:hover {
+    background: #1565c0; /* Escurece o botão ao passar o mouse */
+}
+
+.signup-text {
+    margin-top: 15px; /* Espaço acima do texto de cadastro */
+    color: #1976d2; /* Cor azul para combinar com o botão */
+    font-size: 14px; /* Tamanho da fonte para legibilidade */
+}
+
+.signup-text a {
+    color: #1976d2; /* Cor azul para o link */
+    text-decoration: none; /* Remove sublinhado padrão do link */
+}
+.signup-text a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.error-message {
+    color: #d32f2f; /* Vermelho para mensagens de erro (ex.: conta não encontrada) */
+    font-size: 14px; /* Tamanho da fonte */
+    margin-top: 10px; /* Espaço acima da mensagem */
+}
+
+h1 {
+    font-size: 24px; /* Tamanho do título na página de tarefas */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+#logout-button {
+    width: auto; /* Botão de logout não ocupa toda a largura */
+    padding: 5px 10px; /* Padding reduzido para parecer menor */
+    float: right; /* Alinha o botão à direita */
+}
+
+#task-form {
+    display: flex; /* Usa flexbox para alinhar o campo de input e o botão */
+    gap: 10px; /* Espaço entre o input e o botão de adicionar */
+}
+
+#task-list {
+    list-style: none; /* Remove marcadores padrão da lista */
+    padding: 0; /* Remove padding padrão */
+    margin-top: 20px; /* Espaço acima da lista de tarefas */
+}
+
+#task-list li {
+    display: flex; /* Usa flexbox para alinhar texto e botões */
+    justify-content: space-between; /* Espaça texto à esquerda e botões à direita */
+    align-items: center; /* Alinha verticalmente */
+    padding: 10px; /* Espaçamento interno */
+    border-bottom: 1px solid #ccc; /* Linha divisória entre tarefas */
+}
+
+#task-list li.completed span {
+    text-decoration: line-through; /* Risca o texto de tarefas concluídas */
+    color: #888; /* Cor cinza para indicar tarefa concluída */
+}
+
+#task-list li button {
+    width: auto; /* Botões da lista (concluir, editar, deletar) não ocupam toda a largura */
+    padding: 5px 10px; /* Padding reduzido para botões menores */
+}
+
+.complete-btn {
+    background: #4caf50; /* Verde para o botão de concluir/desmarcar */
+}
+
+.complete-btn:hover {
+    background: #45a049; /* Escurece o verde ao passar o mouse */
+}
+
+.edit-btn {
+    background: #ff9800; /* Laranja para o botão de editar */
+}
+
+.edit-btn:hover {
+    background: #e68900; /* Escurece o laranja ao passar o mouse */
+}
+
+.delete-btn {
+    background: #d32f2f; /* Vermelho para o botão de deletar */
+}
+
+.delete-btn:hover {
+    background: #c62828; /* Escurece o vermelho ao passar o mouse */
+}

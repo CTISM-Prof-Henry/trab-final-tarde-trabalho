@@ -1,0 +1,24 @@
+<!DOCTYPE html> <!-- Define o documento como HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma como português do Brasil -->
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante responsividade em dispositivos móveis -->
+    <title>Cadastro</title> <!-- Título exibido na aba do navegador -->
+    <link rel="stylesheet" href="../CSS/styl.css"> <!-- Caminho corrigido para o CSS, saindo da pasta HTML -->
+</head>
+<body>
+    <div class="container"> <!-- Container principal que centraliza o conteúdo -->
+        <div class="login-box"> <!-- Caixa estilizada que contém o formulário de cadastro -->
+            <div class="user-icon"></div> <!-- Div para o ícone de usuário, estilizado via CSS -->
+            <form id="signup-form"> <!-- Formulário para capturar email e senha -->
+                <input type="email" id="email" placeholder="Email" required> <!-- Campo de entrada para email -->
+                <input type="password" id="password" placeholder="Senha" required> <!-- Campo de entrada para senha -->
+                <button type="submit">Cadastrar</button> <!-- Botão para enviar o formulário -->
+            </form>
+            <p id="signup-message" class="error-message"></p> <!-- Parágrafo para mensagens de feedback -->
+            <p class="signup-text">Já possui uma conta? <a href="index.html">Faça login</a></p> <!-- Link para a tela de login -->
+        </div>
+    </div>
+    <script src="../JS/signup.js"></script> <!-- Caminho corrigido para o JS, saindo da pasta HTML -->
+</body>
+</html>
