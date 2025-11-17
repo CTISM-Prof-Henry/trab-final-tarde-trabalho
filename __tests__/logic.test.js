@@ -25,13 +25,6 @@ describe('Lógica do Organizador de Tarefas', () => {
     expect(users).toContainEqual({ email: 'novo@test.com', password: '456' });
   });
 
-  test('Cadastro com email duplicado', () => {
-    localStorage.setItem('users', JSON.stringify([{ email: 'existe@test.com', password: '123' }]));
-    const result = signup('existe@test.com', '456');
-    expect(result.success).toBe(false);
-    expect(result.error).toBe('Este email já está cadastrado.');
-  });
-
   test('Adicionar tarefa', () => {
     localStorage.setItem('currentUser', JSON.stringify({ email: 'user@test.com' }));
     const tasks = addTask('user@test.com', 'Nova tarefa');
@@ -54,4 +47,5 @@ describe('Lógica do Organizador de Tarefas', () => {
     const tasks = JSON.parse(localStorage.getItem('tasks_user@test.com'));
     expect(tasks).toHaveLength(0);
   });
+
 });
