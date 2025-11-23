@@ -1,24 +1,70 @@
-<!DOCTYPE html> <!-- Define o documento como HTML5 -->
-<html lang="pt-BR"> <!-- Define o idioma como português do Brasil -->
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"> <!-- Define a codificação de caracteres -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante responsividade em dispositivos móveis -->
-    <title>Organizador de Tarefas</title> <!-- Título exibido na aba do navegador -->
-    <link rel="stylesheet" href="../CSS/styl.css"> <!-- Caminho corrigido para o CSS, saindo da pasta HTML -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+    <link rel="stylesheet" href="../CSS/styl.css">
 </head>
 <body>
-    <div class="container"> <!-- Container principal para centralizar o conteúdo -->
-        <div class="task-box">
-            <h1>Organizador de Tarefas</h1> <!-- Título da página -->
-            <button id="logout-button">Sair</button> <!-- Botão para logout -->
-            <form id="task-form"> <!-- Formulário para adicionar tarefas -->
-                <input type="text" id="task-input" placeholder="Digite uma nova tarefa..." required> <!-- Campo para nova tarefa -->
-                <button type="submit">Adicionar</button> <!-- Botão para adicionar tarefa -->
-            </form>
-            <p id="task-message" class="error-message"></p> <!-- Elemento para mensagens de feedback -->
-            <ul id="task-list"></ul> <!-- Lista onde as tarefas serão exibidas -->
-        </div>
-    </div>
-    <script src="../JS/tasks.js"></script> <!-- Caminho corrigido para o JS, saindo da pasta HTML -->
+<!-- Container principal branco -->
+<div class="tasks-container">
+    <div class="tasks-header">Minhas Tarefas </div>
+    <!-- Aqui aparecem as tarefas -->
+    <div class="tasks-body" id="task-list"></div>
+</div>
+
+<!-- Botão flutuante + para adicionar tarefa -->
+<button class="fab" id="add-btn">+</button>
+
+<!-- Carrega a lógica -->
+<script src="../JS/logic.js"></script>
+
+<script>
+    // Verifica se está logado (se não estiver, volta pro login)
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (!user) {
+        location.href = 'index.html';
+    }
+
+    const lista = document.getElementById('task-list');
+
+    // Função que recarrega todas as tarefas na tela
+    function atualizarTela() {
+        lista.innerHTML = '';  // Limpa a lista
+        const tarefas = getTasks(user.email);
+
+        tarefas.forEach((tarefa, indice) => {
+            lista.innerHTML += `
+          <div class="task-item">
+            <!-- Checkbox que marca como concluída -->
+            <input type="checkbox" ${tarefa.completed?'checked':''}
+                   onchange="toggleTask('${user.email}', ${indice}); atualizarTela()">
+            <!-- Texto da tarefa (riscado se concluída) -->
+            <span class="task-text ${tarefa.completed?'completed':''}">
+              ${tarefa.text}
+            </span>
+            <!-- Botão X para excluir -->
+            <button onclick="deleteTask('${user.email}', ${indice}); atualizarTela()"
+                    style="background:none;border:none;font-size:28px;color:#999;margin-left:auto">
+              ×
+            </button>
+          </div>
+        `;
+        });
+    }
+
+    // Botão + → pergunta a nova tarefa
+    document.getElementById('add-btn').onclick = () => {
+        const texto = prompt('Digite a nova tarefa:');
+        if (texto && texto.trim()) {
+            addTask(user.email, texto.trim());
+            atualizarTela();
+        }
+    };
+
+    // Carrega as tarefas ao abrir a página
+    atualizarTela();
+</script>
 </body>
 </html>

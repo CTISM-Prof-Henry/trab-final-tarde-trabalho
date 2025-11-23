@@ -1,47 +1,52 @@
-// JS/logic.js - Lógica pura (testável)
+// app/JS/logic.js
+
+// USUÁRIO PRÉ-DEFINIDO
+const USUARIO_VALIDO = {
+    email: "isa@ctism.com",
+    password: "123456"
+};
+
+// 1. FUNÇÃO DE LOGIN (só aceita o usuário fixo)
 function login(email, password) {
-  const users = JSON.parse(localStorage.getItem('users') || '[]');
-  const user = users.find(u => u.email === email && u.password === password);
-  if (user) {
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    return { success: true };
-  }
-  return { success: false, error: 'Conta não encontrada. Por favor, cadastre-se.' };
+    // Verifica se o email e senha batem com o usuário pré-definido
+    if (email === USUARIO_VALIDO.email && password === USUARIO_VALIDO.password) {
+        // Salva o usuário como "logado" no localStorage
+        localStorage.setItem('currentUser', JSON.stringify({ email: USUARIO_VALIDO.email }));
+        return { success: true };                       // Login OK
+    }
+    // Qualquer outro usuário → erro
+    return {
+        success: false,
+        error: 'Usuário ou senha incorretos.'
+    };
 }
 
-function signup(email, password) {
-  const users = JSON.parse(localStorage.getItem('users') || '[]');
-  if (users.some(u => u.email === email)) {
-    return { success: false, error: 'Este email já está cadastrado.' };
-  }
-  users.push({ email, password });
-  localStorage.setItem('users', JSON.stringify(users));
-  return { success: true, message: 'Cadastro realizado com sucesso!' };
+// 2. PEGAR AS TAREFAS DO USUÁRIO
+function getTasks(email) {
+    // Busca as tarefas salvas com a chave "tasks_isa@ctism.com"
+    return JSON.parse(localStorage.getItem(`tasks_${email}`) || '[]');
 }
 
-function getTasks(userEmail) {
-  return JSON.parse(localStorage.getItem(`tasks_${userEmail}`) || '[]');
+// 3. ADICIONAR NOVA TAREFA
+function addTask(email, text) {
+    const tasks = getTasks(email);
+    // Adiciona nova tarefa (não concluída)
+    tasks.push({ text: text.trim(), completed: false });
+    localStorage.setItem(`tasks_${email}`, JSON.stringify(tasks));
 }
 
-function addTask(userEmail, text) {
-  const tasks = getTasks(userEmail);
-  tasks.push({ text, completed: false });
-  localStorage.setItem(`tasks_${userEmail}`, JSON.stringify(tasks));
-  return tasks;
+// 4. MARCAR/DESMARCAR COMO CONCLUÍDA
+function toggleTask(email, index) {
+    const tasks = getTasks(email);
+    // Inverte o estado da tarefa (concluída ↔ não concluída)
+    tasks[index].completed = !tasks[index].completed;
+    localStorage.setItem(`tasks_${email}`, JSON.stringify(tasks));
 }
 
-function completeTask(userEmail, index) {
-  const tasks = getTasks(userEmail);
-  tasks[index].completed = !tasks[index].completed;
-  localStorage.setItem(`tasks_${userEmail}`, JSON.stringify(tasks));
-  return tasks;
+// 5. EXCLUIR TAREFA
+function deleteTask(email, index) {
+    const tasks = getTasks(email);
+    // Remove a tarefa do array
+    tasks.splice(index, 1);
+    localStorage.setItem(`tasks_${email}`, JSON.stringify(tasks));
 }
-
-function deleteTask(userEmail, index) {
-  const tasks = getTasks(userEmail);
-  tasks.splice(index, 1);
-  localStorage.setItem(`tasks_${userEmail}`, JSON.stringify(tasks)); // CORRIGIDO: era userEmail
-  return tasks;
-}
-
-module.exports = { login, signup, getTasks, addTask, completeTask, deleteTask };

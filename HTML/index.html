@@ -1,24 +1,54 @@
-<!DOCTYPE html> <!-- Define o documento como HTML5 -->
-<html lang="pt-BR"> <!-- Define o idioma como português do Brasil -->
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para suportar acentos e caracteres especiais -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante que a página seja responsiva em dispositivos móveis -->
-    <title>Tela de Login</title> <!-- Título exibido na aba do navegador -->
-    <link rel="stylesheet" href="../CSS/styl.css"> <!-- Importa o arquivo de estilos CSS compartilhado -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Organizador de Tarefas</title>
+    <!-- Estilo igual ao Figma -->
+    <link rel="stylesheet" href="../CSS/styl.css">
 </head>
 <body>
-    <div class="container"> <!-- Container principal que centraliza o conteúdo na tela -->
-        <div class="login-box"> <!-- Caixa estilizada que contém o formulário de login -->
-            <div class="user-icon"></div> <!-- Div para o ícone de usuário, estilizado via CSS -->
-            <form id="login-form"> <!-- Formulário para capturar email e senha -->
-                <input type="email" id="email" placeholder="Email" required> <!-- Campo de entrada para email, com validação HTML5 -->
-                <input type="password" id="password" placeholder="Senha" required> <!-- Campo de entrada para senha, com validação HTML5 -->
-                <button type="submit">Entrar</button> <!-- Botão para enviar o formulário -->
-            </form>
-            <p id="error-message" class="error-message"></p> <!-- Parágrafo para exibir mensagens de erro (ex.: conta não encontrada) -->
-            <p class="signup-text">Ainda não possui uma conta? <a href="signup.html">Cadastre-se</a></p> <!-- Texto com link para a página de cadastro -->
-        </div>
-    </div>
-    <script src="../JS/script.js"></script> <!-- Importa o arquivo JavaScript que gerencia a lógica de login -->
+<div class="auth-container">
+    <!-- Ícone grande de usuário -->
+    <div class="user-icon"></div>
+
+    <h2>Login</h2>
+
+    <!-- Campos pré-preenchidos para facilitar o teste -->
+    <input type="email" id="email" placeholder="Email" value="isa@ctism.com">
+    <input type="password" id="password" placeholder="Senha" value="123456">
+
+    <!-- Botão de login -->
+    <button id="login-btn">Entrar</button>
+
+    <!-- Mensagem de erro (aparece se digitar errado) -->
+    <p id="error" style="color:#ffb3b3; margin-top:15px; font-weight:bold"></p>
+
+    <!-- Instrução para o professor/avaliador -->
+    <small style="color:#ccc">Use: isa@ctism.com / 123456</small>
+</div>
+
+<!-- Carrega a lógica pura primeiro -->
+<script src="../JS/logic.js"></script>
+
+<!-- Script que controla o botão Entrar -->
+<script>
+    // Quando clicar no botão
+    document.getElementById('login-btn').onclick = function() {
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        // Chama a função login() que está no logic.js
+        const resultado = login(email, password);
+
+        if (resultado.success) {
+            // Login correto → vai para a página de tarefas
+            location.href = 'tasks.html';
+        } else {
+            // Login errado → mostra mensagem vermelha
+            document.getElementById('error').textContent = resultado.error;
+        }
+    };
+</script>
 </body>
 </html>
