@@ -1,50 +1,44 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/dPE_WcyC)
-# Título do repositório
+# Organizador de Tarefas
 
-Descrição curta do repositório.
-
-## Sumário
-
-* [Pré-requisitos](#pré-requisitos)
-* [Instalação](#instalação)
-* [Instruções de uso](#instruções-de-uso)
-* [Contato](#contato)
-* [Bibliografia](#bibliografia)
+Aplicação web simples e elegante de lista de tarefas com login pré-definido.
 
 ## Pré-requisitos
+- Navegador moderno (Chrome, Edge, Firefox)
+- Nenhum servidor necessário 
 
-Descreva aqui brevemente os pré-requisitos necessários para executar o código-fonte. Descreva também
-a configuração mínima da máquina em que o código foi desenvolvido, e se alguma configuração em particular é essencial
-para sua execução (por exemplo, placa de vídeo dedicada):
+## Como Executar
+1. Clone ou baixe o repositório
+2. Abra a pasta `app/HTML/`
+3. Dê duplo clique em `index.html` (ou abra pelo WebStorm)
+4. Faça login com:
+   - Email: `isa@ctism.com`
+   - Senha: `123456`
+5. Divirta-se gerenciando suas tarefas!
 
-| Configuração        | Valor                    |
-|---------------------|--------------------------|
-| Sistema operacional | Windows 10 Pro (64 bits) |
-| Processador         | Intel core i7 9700       |
-| Memória RAM         | 16GB                     |
-| Necessita rede?     | Sim                      |
+## Tecnologias Utilizadas
+- HTML
+- CSS
+- JavaScript
+- localStorage para persistência
+- Testes unitários
 
-
-## Instalação
-
-Descreva aqui as instruções para instalação das ferramentas para execução do código-fonte: 
-
-```bash
-sudo apt-get install nano
-```
-
-## Instruções de Uso
-
-Descreva aqui o passo-a-passo que outros usuários precisam realizar para conseguir executar com sucesso o código-fonte
-deste projeto:
-
-```bash
-echo "olá mundo!"
-```
+## Estrutura do Projeto
+app/
+├── CSS/styl.css          → Estilo completo e comentado
+├── HTML/
+│   ├── index.html         → Tela de login
+│   └── tasks.html         → Lista de tarefas
+└── JS/logic.js            → Lógica pura 
 
 ## Contato
 
-O repositório foi originalmente desenvolvido por Fulano: [fulano@ufsm.br]()
+O repositório foi originalmente desenvolvido por Fulano: [fulano@ufsm.br]() e [fulano@ufsm.br]()
+
+Colégio Politécnico - Técnico em Informática
+Turma Tarde 2025
+"Feito com carinho, café e muita dor de cabeça"
+
 
 ## Bibliografia
 
