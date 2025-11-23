@@ -22,15 +22,13 @@ Acesse a página inicial e insira seu email e senha. Se não tiver conta, clique
 - Adicione uma tarefa no campo e clique em "Adicionar".
 - Use "Concluir" para marcar como feita, "Editar" para alterar, ou "Deletar" para remover.
 
-## Logout
-Clique em "Sair" para encerrar a sessão.
 
 # Desenvolvimento
 
 ## Estrutura do Projeto
 - HTML/: Páginas como index.html, signup.html, tasks.html.
 - CSS/: Estilos em styles.css.
-- JS/: Lógica em script.js, signup.js, tasks.js.
+- JS/: Lógica logic.js.
 
 ## Tecnologias
 - HTML, CSS, JavaScript
