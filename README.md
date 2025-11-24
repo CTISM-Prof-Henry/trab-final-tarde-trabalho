@@ -33,7 +33,7 @@ app/
 
 ## Contato
 
-O repositório foi originalmente desenvolvido por Fulano: [fulano@ufsm.br]() e tayanna.pereira@acad.ufsm.br
+O repositório foi originalmente desenvolvido por Fulano: isabele.facco@acad.ufsm.br e tayanna.pereira@acad.ufsm.br
 
 Colégio Politécnico - Técnico em Informática
 Turma Tarde 2025
